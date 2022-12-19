@@ -9,6 +9,7 @@ public class Budget {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
+
     private long budgetID;
     @Column
     private String sapCode;
@@ -22,17 +23,19 @@ public class Budget {
     private int packageSize;
 
     @Column
-    private String SBU;
+    private SBU sbu;
     @Column
     private String fieldColleagueID;
 
     @Column
+    private String fieldColleagueName;
+    @Column
     private int quantity;
     @Column
-
     private String depotName;
-    @Column
-    private String depotID;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "depot_id")
+    private Depot depot;
     @Column
     private String category;
 
@@ -41,8 +44,13 @@ public class Budget {
     @Column
     private int year;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ssu_id")
+    private SSU ssu;
     @Column
-    private String warehouseName;
+    private boolean isDepotReceived;
+    @Column
+    private boolean isInSSU;
 
     public long getBudgetID() {
         return budgetID;
@@ -84,12 +92,12 @@ public class Budget {
         this.packageSize = packageSize;
     }
 
-    public String getSBU() {
-        return SBU;
+    public SBU getSbu() {
+        return sbu;
     }
 
-    public void setSBU(String SBU) {
-        this.SBU = SBU;
+    public void setSbu(SBU sbu) {
+        this.sbu = sbu;
     }
 
     public String getFieldColleagueID() {
@@ -98,6 +106,14 @@ public class Budget {
 
     public void setFieldColleagueID(String fieldColleagueID) {
         this.fieldColleagueID = fieldColleagueID;
+    }
+
+    public String getFieldColleagueName() {
+        return fieldColleagueName;
+    }
+
+    public void setFieldColleagueName(String fieldColleagueName) {
+        this.fieldColleagueName = fieldColleagueName;
     }
 
     public int getQuantity() {
@@ -116,12 +132,12 @@ public class Budget {
         this.depotName = depotName;
     }
 
-    public String getDepotID() {
-        return depotID;
+    public Depot getDepot() {
+        return depot;
     }
 
-    public void setDepotID(String depotID) {
-        this.depotID = depotID;
+    public void setDepot(Depot depot) {
+        this.depot = depot;
     }
 
     public String getCategory() {
@@ -148,12 +164,28 @@ public class Budget {
         this.year = year;
     }
 
-    public String getWarehouseName() {
-        return warehouseName;
+    public SSU getSsu() {
+        return ssu;
     }
 
-    public void setWarehouseName(String warehouseName) {
-        this.warehouseName = warehouseName;
+    public void setSsu(SSU ssu) {
+        this.ssu = ssu;
+    }
+
+    public boolean isDepotReceived() {
+        return isDepotReceived;
+    }
+
+    public void setDepotReceived(boolean depotReceived) {
+        isDepotReceived = depotReceived;
+    }
+
+    public boolean isInSSU() {
+        return isInSSU;
+    }
+
+    public void setInSSU(boolean inSSU) {
+        isInSSU = inSSU;
     }
 
 }

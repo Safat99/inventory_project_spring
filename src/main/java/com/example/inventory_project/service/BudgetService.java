@@ -28,7 +28,7 @@ public class BudgetService {
             Budget _budget = new Budget();
             _budget.setBudgetID(_budgetDTO.getBudgetID());
             _budget.setCategory(_budgetDTO.getCategory());
-            _budget.setDepotID(_budgetDTO.getDepotID());
+//            _budget.setDepotID(_budgetDTO.getDepotID());
             _budget.setDepotName(_budget.getDepotName());
             allBudget.add(_budget);
         }
