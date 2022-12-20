@@ -1,7 +1,10 @@
 package com.example.inventory_project.DTO;
 
+import com.example.inventory_project.entity.SBU;
 import com.poiji.annotation.ExcelCell;
 import com.poiji.annotation.ExcelRow;
+
+import javax.persistence.Column;
 
 public class BudgetDTO {
     @ExcelRow
@@ -18,20 +21,19 @@ public class BudgetDTO {
 
     @ExcelCell(4)
     private int packageSize;
-
     @ExcelCell(5)
-    private String SBU;
+    private SBU sbu;
     @ExcelCell(6)
     private String fieldColleagueID;
-
     @ExcelCell(7)
+    private String fieldColleagueName;
 
-    private int quantity;
     @ExcelCell(8)
-
-    private String depotName;
+    private int quantity;
     @ExcelCell(9)
 
+    private String depotName;
+    @ExcelCell(10)
     private String depotID;
     @ExcelCell(11)
     private String category;
@@ -40,8 +42,9 @@ public class BudgetDTO {
     private String month;
     @ExcelCell(13)
     private int year;
+
     @ExcelCell(14)
-    private String warehouseName;
+    private String ssu_id;
 
     public long getBudgetID() {
         return budgetID;
@@ -63,8 +66,8 @@ public class BudgetDTO {
         return packageSize;
     }
 
-    public String getSBU() {
-        return SBU;
+    public SBU getSbu() {
+        return sbu;
     }
 
     public String getFieldColleagueID() {
@@ -95,7 +98,11 @@ public class BudgetDTO {
         return year;
     }
 
-    public String getWarehouseName() {
-        return warehouseName;
+    public String getSsu_id() {
+        return ssu_id;
     }
+    public String getFieldColleagueName() {
+        return fieldColleagueName;
+    }
+
 }

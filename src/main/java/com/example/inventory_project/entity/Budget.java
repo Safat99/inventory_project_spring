@@ -33,9 +33,12 @@ public class Budget {
     private int quantity;
     @Column
     private String depotName;
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "depot_id")
-    private Depot depot;
+//    @OneToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "depot_id")
+//    private Depot depot;
+    @Column
+    private String DepotID;
+
     @Column
     private String category;
 
@@ -44,12 +47,15 @@ public class Budget {
     @Column
     private int year;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ssu_id")
-    private SSU ssu;
+//    @OneToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "ssu_id")
+//    private SSU ssu_id;
+
     @Column
+    private String ssu_id;
+    @Column(columnDefinition = "boolean default false")
     private boolean isDepotReceived;
-    @Column
+    @Column(columnDefinition = "boolean default true")
     private boolean isInSSU;
 
     public long getBudgetID() {
@@ -132,13 +138,13 @@ public class Budget {
         this.depotName = depotName;
     }
 
-    public Depot getDepot() {
-        return depot;
-    }
-
-    public void setDepot(Depot depot) {
-        this.depot = depot;
-    }
+//    public Depot getDepot() {
+//        return depot;
+//    }
+//
+//    public void setDepot(Depot depot) {
+//        this.depot = depot;
+//    }
 
     public String getCategory() {
         return category;
@@ -164,12 +170,20 @@ public class Budget {
         this.year = year;
     }
 
-    public SSU getSsu() {
-        return ssu;
+//    public SSU getSsu() {
+//        return ssu;
+//    }
+//
+//    public void setSsu(SSU ssu) {
+//        this.ssu = ssu;
+//    }
+
+    public String getSsu_id() {
+        return ssu_id;
     }
 
-    public void setSsu(SSU ssu) {
-        this.ssu = ssu;
+    public void setSsu_id(String ssu_id) {
+        this.ssu_id = ssu_id;
     }
 
     public boolean isDepotReceived() {
@@ -187,5 +201,14 @@ public class Budget {
     public void setInSSU(boolean inSSU) {
         isInSSU = inSSU;
     }
+
+    public String getDepotID() {
+        return DepotID;
+    }
+
+    public void setDepotID(String depotID) {
+        DepotID = depotID;
+    }
+
 
 }

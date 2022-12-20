@@ -2,6 +2,7 @@ package com.example.inventory_project.service;
 
 import com.example.inventory_project.DTO.BudgetDTO;
 import com.example.inventory_project.entity.Budget;
+import com.example.inventory_project.repository.BudgetRepository;
 import com.poiji.bind.Poiji;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,12 @@ import java.util.List;
 
 @Service
 public class BudgetService {
+    private final BudgetRepository budgetRepository;
+    public BudgetService(BudgetRepository budgetRepository){
+        this.budgetRepository = budgetRepository;
+    }
 
+    //////////////////////////////////////////  read excel /////////////////////////////////////
     public List<BudgetDTO> getAllBudgetFromExcel(){
         List<BudgetDTO> budgets = Poiji.fromExcel(new File("sample_budget.xlsx"), BudgetDTO.class);
 //        int length = budgets.size();
@@ -26,10 +32,22 @@ public class BudgetService {
         for (int i=0; i<len;i++){
             BudgetDTO _budgetDTO = budgetDTO.get(i);
             Budget _budget = new Budget();
+            _budget.setSapCode(_budgetDTO.getSapCode());
             _budget.setBudgetID(_budgetDTO.getBudgetID());
+            _budget.setProductName(_budgetDTO.getProductName());
+            _budget.setProductionUnit(_budgetDTO.getProductionUnit());
+            _budget.setPackageSize(_budgetDTO.getPackageSize());
+            _budget.setSbu(_budgetDTO.getSbu());
+            _budget.setFieldColleagueID(_budgetDTO.getFieldColleagueID());
+            _budget.setFieldColleagueName(_budgetDTO.getFieldColleagueName());
+            _budget.setQuantity(_budgetDTO.getQuantity());
+            _budget.setDepotName(_budgetDTO.getDepotName());
+            _budget.setDepotID(_budgetDTO.getDepotID());
             _budget.setCategory(_budgetDTO.getCategory());
-//            _budget.setDepotID(_budgetDTO.getDepotID());
-            _budget.setDepotName(_budget.getDepotName());
+            _budget.setMonth(_budgetDTO.getMonth());
+            _budget.setYear(_budgetDTO.getYear());
+            _budget.setSsu_id(_budgetDTO.getSsu_id());
+            budgetRepository.save(_budget);
             allBudget.add(_budget);
         }
         return allBudget;
