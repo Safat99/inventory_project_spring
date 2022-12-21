@@ -16,7 +16,7 @@ public class Depot {
     @Column
     private String location;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id") // We set the shared primary key column
     private User user;
 
@@ -43,5 +43,4 @@ public class Depot {
     public void setDepotName(String depotName) {
         this.depotName = depotName;
     }
-
 }

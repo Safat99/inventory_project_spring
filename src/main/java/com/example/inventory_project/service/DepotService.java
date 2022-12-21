@@ -9,10 +9,21 @@ import java.util.Optional;
 @Service
 public class DepotService {
     private final DepotRepository depotRepository;
+
     public DepotService(DepotRepository depotRepository){
         this.depotRepository = depotRepository;
     }
+
     public Depot addDepot(Depot depot){
+        return depotRepository.save(depot);
+    }
+
+    public Depot addDepotMain(Depot getFullDepot){
+        Depot depot = new Depot();
+        depot.setLocation(getFullDepot.getLocation());
+        depot.setDepotName(getFullDepot.getDepotName());
+        depot.setUser(getFullDepot.getUser());
+
         return depotRepository.save(depot);
     }
 

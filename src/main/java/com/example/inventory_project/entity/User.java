@@ -21,12 +21,12 @@ public class User {
 
     @Column
     private String email;
-    @Column
+    @Column(columnDefinition = "varchar(255) default '123456'")
     private String password;
     @Column
     private String description;
     @Column
-    private Date createdOn;
+    private Date createdOn = new Date();
     @Column
     private Date updatedOn;
 
@@ -98,13 +98,13 @@ public class User {
         return createdOn;
     }
     public void setCreatedOn(Date createdOn) {
-        this.createdOn = createdOn;
+        this.createdOn = new java.util.Date();
     }
     public Date getUpdatedOn() {
         return updatedOn;
     }
     public void setUpdatedOn(Date updatedOn) {
-        this.updatedOn = updatedOn;
+        this.updatedOn = new java.util.Date();
     }
 }
 
