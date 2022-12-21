@@ -25,7 +25,7 @@ public class BudgetService {
         return new ArrayList<BudgetDTO>(budgets);
     }
     ///////////////////////////////////////// /////////////////////////////////////////////////////
-    public List<Budget> addEmployeeFromExcel(){
+    public List<Budget> addBudgetFromExcel(){
         List<BudgetDTO> budgetDTO = Poiji.fromExcel(new File("sample_budget.xlsx"), BudgetDTO.class);
         List<Budget> allBudget = new ArrayList<>();
         int len = budgetDTO.size();

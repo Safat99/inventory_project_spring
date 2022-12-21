@@ -1,6 +1,7 @@
 package com.example.inventory_project.controller;
 
 import com.example.inventory_project.DTO.BudgetDTO;
+import com.example.inventory_project.entity.Budget;
 import com.example.inventory_project.service.BudgetService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,6 @@ import java.util.List;
 @RestController
 public class BudgetController {
     private final BudgetService budgetService;
-
     public BudgetController(BudgetService budgetService) {
         this.budgetService = budgetService;
     }
@@ -27,9 +27,9 @@ public class BudgetController {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /////////////////////////////// add db from excel ///////////////////////////////////////
-//    @PostMapping("/addBudgetFromExcel")
-//    public ResponseEntity<List<BudgetDTO>> addBudgetDTOFromExcel(){
-//        return new ResponseEntity<>(budgetService.addBudgetFromExcel(),HttpStatus.CREATED);
-//    }
+    @PostMapping("/addBudgetFromExcel")
+    public ResponseEntity<List<Budget>> addBudgetDTOFromExcel(){
+        return new ResponseEntity<>(budgetService.addBudgetFromExcel(),HttpStatus.CREATED);
+    }
 
 }
