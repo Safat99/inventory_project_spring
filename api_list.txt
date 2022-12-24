@@ -1,18 +1,18 @@
-admin/addDepot | 2
-admin/addSSU | 2
-admin/summaryDU | 3
+admin/addDepot | 
+admin/addSSU | 
+admin/summaryDU | 
 
-admin/viewDepot/{id} | 5
-admin/uploadBudget | 5
+admin/viewDepot/{id} | 
+admin/uploadBudget | 
 
-depot/viewDashboard | 5
+depot/viewDashboard | 
 
 
 ------------------moin-------------
 
-admin/addNewUser | 2
-admin/summaryDSO | 3
-admin/summaryDPG | 3
-admin/viewSSU | 5
-SSU/viewBudget | 5
+admin/addNewUser | 
+admin/summaryDSO | 
+admin/summaryDPG | 
+admin/viewSSU | 
+SSU/viewBudget | 
 
