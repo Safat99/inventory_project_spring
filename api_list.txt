@@ -15,5 +15,4 @@ admin/summaryDSO | 3
 admin/summaryDPG | 3
 admin/viewSSU | 5
 SSU/viewBudget | 5
-security / 15+
 
