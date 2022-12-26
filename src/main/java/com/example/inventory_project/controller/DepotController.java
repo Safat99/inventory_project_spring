@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 @RequestMapping("/depot")
@@ -48,6 +48,18 @@ public class DepotController {
             return new ResponseEntity<Depot>(_depot, HttpStatus.OK);
         }
         return new ResponseEntity<String>("No Depot Found", HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping("/viewAllDepots")
+    public ResponseEntity<List<Depot>> viewAllDepots(){
+        return new ResponseEntity<List<Depot>>(depotRepository.findAll(),HttpStatus.OK);
+    }
+
+    @GetMapping("/viewAllDepotsPaginated")
+    public ResponseEntity<?> viewAllDepotsPaginated(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue="10") int size) {
+        return new ResponseEntity<>(depotService.viewDepotsPaginated(page,size),HttpStatus.OK);
     }
 
     @DeleteMapping("/deleteDepot/{id}")

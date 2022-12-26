@@ -4,8 +4,13 @@ import com.example.inventory_project.entity.Depot;
 import com.example.inventory_project.entity.User;
 import com.example.inventory_project.repository.DepotRepository;
 import com.example.inventory_project.repository.UserRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -48,4 +53,18 @@ public class DepotService {
         depotRepository.delete(_depot);
     }
 
+    public List<Depot> viewDepotsPaginated(int page, int size){
+        List<Depot> depots = new ArrayList<Depot>();
+        Pageable paging = PageRequest.of(page, size);
+        Page<Depot> pageDepots = depotRepository.findAll(paging);
+        depots = pageDepots.getContent();
+
+        //to show all the values in dictionary format
+//        Map<String, Object> response = new HashMap<>();
+//        response.put("depots", depots);
+//        return new ResponseEntity<>(response,HttpStatus.OK);
+
+        // to show all the values in list format
+        return depots;
+    }
 }
