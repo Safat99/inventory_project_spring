@@ -16,7 +16,7 @@ public class Depot {
     @Column
     private String location;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id") // We set the shared primary key column
     private User user;
 

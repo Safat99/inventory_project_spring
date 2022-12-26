@@ -1,7 +1,9 @@
 package com.example.inventory_project.service;
 
 import com.example.inventory_project.entity.Depot;
+import com.example.inventory_project.entity.User;
 import com.example.inventory_project.repository.DepotRepository;
+import com.example.inventory_project.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -9,9 +11,11 @@ import java.util.Optional;
 @Service
 public class DepotService {
     private final DepotRepository depotRepository;
+    private final UserRepository userRepository;
 
-    public DepotService(DepotRepository depotRepository){
+    public DepotService(DepotRepository depotRepository, UserRepository userRepository){
         this.depotRepository = depotRepository;
+        this.userRepository = userRepository;
     }
 
     public Depot addDepot(Depot depot){
@@ -41,4 +45,9 @@ public class DepotService {
             return null;
         }
     }
+
+    public void deleteDepot(Depot _depot){
+        depotRepository.delete(_depot);
+    }
+
 }
