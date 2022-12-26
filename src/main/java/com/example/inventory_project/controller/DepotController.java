@@ -1,6 +1,7 @@
 package com.example.inventory_project.controller;
 
 import com.example.inventory_project.entity.Depot;
+import com.example.inventory_project.projection.DepotProjectionInterface;
 import com.example.inventory_project.repository.DepotRepository;
 import com.example.inventory_project.service.DepotService;
 import org.springframework.http.HttpStatus;
@@ -60,6 +61,11 @@ public class DepotController {
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue="10") int size) {
         return new ResponseEntity<>(depotService.viewDepotsPaginated(page,size),HttpStatus.OK);
+    }
+
+    @GetMapping("/viewAllDepotsName")
+    public ResponseEntity<List<DepotProjectionInterface>> showAllDepotsName(){
+        return new ResponseEntity<List<DepotProjectionInterface>>(depotService.showAllDepotName(), HttpStatus.OK);
     }
 
     @DeleteMapping("/deleteDepot/{id}")

@@ -2,6 +2,7 @@ package com.example.inventory_project.service;
 
 import com.example.inventory_project.entity.Depot;
 import com.example.inventory_project.entity.User;
+import com.example.inventory_project.projection.DepotProjectionInterface;
 import com.example.inventory_project.repository.DepotRepository;
 import com.example.inventory_project.repository.UserRepository;
 import org.springframework.data.domain.Page;
@@ -66,5 +67,9 @@ public class DepotService {
 
         // to show all the values in list format
         return depots;
+    }
+
+    public List<DepotProjectionInterface> showAllDepotName(){
+        return depotRepository.getAllDepotName();
     }
 }
