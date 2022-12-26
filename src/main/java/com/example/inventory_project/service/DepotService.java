@@ -11,11 +11,9 @@ import java.util.Optional;
 @Service
 public class DepotService {
     private final DepotRepository depotRepository;
-    private final UserRepository userRepository;
 
-    public DepotService(DepotRepository depotRepository, UserRepository userRepository){
+    public DepotService(DepotRepository depotRepository){
         this.depotRepository = depotRepository;
-        this.userRepository = userRepository;
     }
 
     public Depot addDepot(Depot depot){
