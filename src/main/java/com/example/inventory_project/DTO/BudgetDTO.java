@@ -5,6 +5,8 @@ import com.poiji.annotation.ExcelCell;
 import com.poiji.annotation.ExcelRow;
 
 import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
 public class BudgetDTO {
     @ExcelRow
@@ -19,26 +21,34 @@ public class BudgetDTO {
     @ExcelCell(3)
     private int productionUnit;
 
+    @Enumerated(EnumType.STRING)
     @ExcelCell(4)
     private int packageSize;
+
     @ExcelCell(5)
     private SBU sbu;
+
     @ExcelCell(6)
     private String fieldColleagueID;
+
     @ExcelCell(7)
     private String fieldColleagueName;
 
     @ExcelCell(8)
     private int quantity;
+
     @ExcelCell(9)
     private String depotName;
+
     @ExcelCell(10)
     private String depotID;
+
     @ExcelCell(11)
     private String category;
 
     @ExcelCell(12)
     private String month;
+
     @ExcelCell(13)
     private int year;
 

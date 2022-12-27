@@ -2,6 +2,7 @@ package com.example.inventory_project.service;
 
 import com.example.inventory_project.DTO.BudgetDTO;
 import com.example.inventory_project.entity.Budget;
+import com.example.inventory_project.projection.BudgetProjectionInterface;
 import com.example.inventory_project.repository.BudgetRepository;
 import com.poiji.bind.Poiji;
 import org.springframework.stereotype.Service;
@@ -53,6 +54,9 @@ public class BudgetService {
         return allBudget;
     }
 
+    public List<BudgetProjectionInterface> showDepotWiseProductSum() {
+        return budgetRepository.getDepotWiseProductSum();
+    }
 
 
 }
