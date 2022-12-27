@@ -2,6 +2,7 @@ package com.example.inventory_project.controller;
 
 import com.example.inventory_project.DTO.BudgetDTO;
 import com.example.inventory_project.entity.Budget;
+import com.example.inventory_project.projection.BudgetProjectionInterface;
 import com.example.inventory_project.service.BudgetService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,7 @@ public class BudgetController {
     }
 
     @GetMapping("/showAll")
-    public ResponseEntity<List<BudgetDTO>> getAllEmployeesFromExcel(){
+    public ResponseEntity<List<BudgetDTO>> getAllEmployeesFromExcel() {
         return new ResponseEntity<List<BudgetDTO>>(budgetService.getAllBudgetFromExcel(), HttpStatus.OK);
     }
 
@@ -32,8 +33,12 @@ public class BudgetController {
      * @return
      */
     @PostMapping("/addBudgetFromExcel")
-    public ResponseEntity<List<Budget>> addBudgetDTOFromExcel(String name){
+    public ResponseEntity<List<Budget>> addBudgetDTOFromExcel(String name) {
         return new ResponseEntity<>(budgetService.addBudgetFromExcel(),HttpStatus.CREATED);
     }
 
+    @GetMapping("/showDepotWiseProductSum")
+    public ResponseEntity<List<BudgetProjectionInterface>> showDepotWiseProductSum() {
+        return new ResponseEntity<>(budgetService.showDepotWiseProductSum(), HttpStatus.OK);
+    }
 }
