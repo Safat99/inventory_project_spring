@@ -1,19 +1,25 @@
-admin/addDepot | 2
-admin/addSSU | 2
-admin/summaryDU | 3
+New Assign
 
-admin/viewDepot/{id} | 5
-admin/uploadBudget | 5
+Safat:
+. Write sql for depot table
+. Add Depot
+. Edit depot
+. Delete depot
+. View depot [Paginated]
+. Upload budget and Insert into database
+. Dashboard
 
-depot/viewDashboard | 5
+Mooen:
+. SSU table sql
+. insert ssu
+. User table sql
+. User create
+. View user [Paginated]
+. Edit user
+. Delete user
+. Inventory [selection]
+. View Budget [full budget]
+. Chalan [write file]
 
-
-------------------moin-------------
-
-admin/addNewUser | 2
-admin/summaryDSO | 3
-admin/summaryDPG | 3
-admin/viewSSU | 5
-SSU/viewBudget | 5
-security / 15+
-
+** Just build api
+** forget security and role 
