@@ -22,6 +22,7 @@ public class Budget {
     @Column
     private int packageSize;
 
+    @Enumerated(EnumType.STRING)
     @Column
     private SBU sbu;
     @Column
