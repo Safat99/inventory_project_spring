@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface DepotRepository extends JpaRepository<Depot,Long> {
-    @Query(value = "select depotName from Depot", nativeQuery = true)
+    @Query(value = "select depotName,location from Depot", nativeQuery = true)
     List<DepotProjectionInterface> getAllDepotName();
 }

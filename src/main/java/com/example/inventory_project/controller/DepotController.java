@@ -33,7 +33,7 @@ public class DepotController {
 
     @PostMapping("/addDepotMain")
     public ResponseEntity<Depot> addDepotMain(@RequestBody Depot depot){
-        return new ResponseEntity<Depot>(depotService. addDepotMain(depot), HttpStatus.CREATED);
+        return new ResponseEntity<Depot>(depotService.addDepotMain(depot), HttpStatus.CREATED);
     }
 
     @PutMapping("/editDepot/{id}")
